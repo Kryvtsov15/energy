@@ -1,0 +1,12 @@
+certifi==2019.3.9
+chardet==3.0.4
+Django==2.2.1
+django-reversion==3.0.4
+idna==2.8
+psycopg2-binary==2.8.2
+pytz==2019.1
+requests==2.22.0
+reversion==0.2
+sqlparse==0.3.0
+toml==0.10.0
+urllib3==1.25.2

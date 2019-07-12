@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="section-top">
+
+        <h1 class="text-center">Корпус - {{ base_id.pavilion }} > Ввод - {{ base_id.input }} > Зона - {{ base_id.zone }}</h1>
+
+    </div>
+    <table border="1" cellpadding="5px">
+    <tr style="color : black;">
+        <td> К-сть агрегатів </td>
+        <td> T завд., °С </td>
+        <td> T зони, °С </td>
+        <td> P вх., кПа </td>
+        <td> V накоп., м³ </td>
+        <td> Тепло за місяць, ГКал </td>
+        <td> V поточний,  м³/год </td>
+        <td> W накоп., кВт </td>
+        <td> W пот., кВт/год </td>
+        <td> Дата та час</td>
+
+    </tr>
+    <tr>
+        <td>{{ number_of_agr }}</td>
+        <td>{{ t_task }}</td>
+        <td>{{ t_zone }}</td>
+        <td>{{ pressure }}</td>
+        <td>{{ sum_capacity }}</td>
+        <td>{{ sum_capacity_warm }}</td>
+        <td>{{ sum_capacity_current }}</td>
+        <td>{{ sum_w_accumulate }}</td>
+        <td>{{ sum_w_current }}</td>
+        <td>{{ ztime }}</td>
+    </tr>
+
+    </table>
+    <div class="section section1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="text-center">
+                        Агрегати у зоні
+                    </h1>
+                </div>
+            </div>
+        </div>
+     <div class="layer">
+        <div class="content">
+            {% for i in controllers reversed %}
+            <div class="layerzone" >
+                    <p>Агрегат № {{ i.number_of_controller }} </p>
+                    <p>V накоп. - {{ i.capacity }} м³</p>
+
+                    <p>Q накоп. - {{ i.capacity_warm }} ГКал</p>
+
+                    <p>V пот. - {{ i.capacity_current }} м³/год</p>
+
+                    <p>W накоп. - {{ i.w_accumulate }} кВт</p>
+
+                    <p>W пот. - {{ i.w_current }} кВт/год</p>
+
+            </div>
+
+         {% endfor %}
+
+
+        </div>
+    </div>
+
+</div>
+    </div>
+{% endblock %}

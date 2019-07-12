@@ -1,0 +1,62 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Домашняя страница{% endblock %}</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'static_dev/styles/style.css'%}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+
+<header>
+    <div class="wrapper">
+        <div class="wrapper-content">
+            {% include 'navbar.html' %}
+        </div>
+    </div>
+</header>
+
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<div class="section section1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="text-center">
+                    Карта тепломережи
+                </h1>
+                <button onclick = "resizeMap(2)">Масштаб вдвое больше</button> <!-- цифры можно подставлять любые -->
+            <button onclick = "resizeMap(0.5)">Масштаб вдвое меньше</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="layermap">
+        <div class="content">
+            {% include 'map.html' %}
+
+            <script>
+                var map = document.getElementById('map');
+var scale = 1;
+function resizeMap(x){
+    scale*=x; // изменяем коэффициент масштаба
+    map.style.width = 1000*scale+'px'; // 1000 и 700 - начальные размеры при масштабе х1
+    map.style.height = 750*scale+'px'; // получаем нужные размеры под текущий масштаб
+}
+            </script>
+        </div>
+    </div>
+
+</div>
+{% endif %}
+{% endblock %}
+
+</body>
+</html>

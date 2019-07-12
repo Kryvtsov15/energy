@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="section-top">
+        <h1 class="text-center">Корпус - </h1>
+    </div>
+    <table border="1" cellpadding="5px">
+    <tr style="color : black;">
+        <td> Корпус </td>
+        <td> Кількість вводів </td>
+        <td> Кількість зон </td>
+        <td> V теплоносія поточний,  м³ </td>
+        <td> Зовнішня температура, °С </td>
+        <td> V теплоносія за поточний місяць, м³ </td>
+        <td> Тепло за місяць, ГКал </td>
+        <td> Дата та час</td>
+
+    </tr>
+    {% for data in all_data %}
+    <tr>
+        <td>{{ data.chain }}</td>
+        <td>{{ data.pavilion }}</td>
+        <td>{{ data.input }}</td>
+        <td>{{ data.zone }}</td>
+        <td>{{ data.time }}</td>
+    </tr>
+        {% endfor %}
+
+    </table>
+    <div class="section section1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="text-center">
+                        Зони корпусу
+                    </h1>
+                </div>
+            </div>
+        </div>
+     <div class="layer">
+        <div class="content">
+
+
+        </div>
+    </div>
+
+</div>
+    </div>
+{% endblock %}

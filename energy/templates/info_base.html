@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+ {% block title %} Таблиця показників {% endblock%}
+
+{%block content%}
+    <h1>Информация з контролерів</h1>
+    {% if user.is_authenticated %}
+    <form action="/info_base/" method = 'post'>
+    {% csrf_token %}
+    <label for="">Искать</label>
+    <input  name = 'search' type="text">
+    <button>Найти</button>
+    </form>
+<table border="1" cellpadding="5px">
+    <tr style="color : black;">
+        <td><a href="/info_base/chain"> Мережа</a></td>
+        <td><a href="/info_base/pavilion"> Корпус</a></td>
+        <td><a href="/info_base/input"> Ввід</a></td>
+        <td><a href="/info_base/zone"> Зона</a></td>
+        <td><a href="/info_base/time"> Дата та час</a></td>
+
+    </tr>
+    {% for data in all_data %}
+    <tr>
+        <td>{{ data.chain }}</td>
+        <td>{{ data.pavilion }}</td>
+        <td>{{ data.input }}</td>
+        <td>{{ data.zone }}</td>
+        <td>{{ data.time }}</td>
+    </tr>
+        {% endfor %}
+
+</table>
+    {% else %}
+     <h1>ВЫ НЕ АВТОРИЗИРОВАНЫ</h1>
+    {% endif %}
+{% endblock %}
+
+)

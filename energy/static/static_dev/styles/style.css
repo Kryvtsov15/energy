@@ -1,0 +1,96 @@
+.footer{
+    position: relative;
+    margin-top: 0px; /* negative value of footer height */
+    height: 100px;
+    clear: both;
+    background-color: grey;
+}
+
+.layermap {
+    overflow: scroll; /* Добавляем полосы прокрутки */
+    width: 90%; /* Ширина блока */
+    height: 20cm; /* Высота блока */
+    padding: 5px; /* Поля вокруг текста */
+    margin: 10px auto;
+    border: solid 3px black; /* Параметры рамки */
+    /*cursor: grab;*/
+
+   }
+
+.layer {
+    width: 90%; /* Ширина блока */
+    height: 20cm; /* Высота блока */
+    padding: 5px; /* Поля вокруг текста */
+    margin: 10px auto;
+    border: solid 3px black; /* Параметры рамки */
+    /*cursor: grab;*/
+
+   }
+
+.layerzone {
+    width: 300px; /* Ширина блока */
+    padding: 5px; /* Поля вокруг текста */
+    margin: 30px;
+    border: solid 3px black; /* Параметры рамки */
+    float: left;
+    font-size: x-large;
+    /*cursor: grab;*/
+
+   }
+
+.layer:active {
+  /*cursor: grabbing;*/
+}
+
+/*.layer rect:hover {*/
+  /*!*cursor: grabbing;*!*/
+    /*!*fill: white;*!*/
+    /*fill: #8b7d77;*/
+
+/*}*/
+.layer a:hover{
+  /*cursor: grabbing;*/
+    stroke: #0004d4;
+    fill: #8b7d77;
+}
+
+a{
+    color: red;
+}
+
+td {
+    width: 3cm;
+    text-align: center;
+}
+
+.wrapper {
+    overflow: auto;
+    text-align: center;
+}
+
+.operation {
+    margin-top: 20px;
+}
+
+
+[class*="oper-"] {
+    display: inline-block;
+    padding: 7px 15px;
+    background-color: #adadad;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #909090;
+}
+
+.content {
+    margin-top: 20px;
+    display: inline-block;
+    max-width: 2400px;
+    width: 100%; /* Ширина блока */
+    height: 1000%; /* Высота блока */
+}
+
+.t1 {
+    float: left;
+    margin: 10px;
+}

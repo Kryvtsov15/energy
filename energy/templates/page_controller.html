@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="section-top">
+        <h1>Test</h1>
+    </div>
+    <div class="section section1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="text-center">
+                        Мережа 1 - Корпус 73 - Зона 1
+                    </h1>
+                </div>
+            </div>
+        </div>
+{#        {% include 'first_page/map.html' %}#}
+          <script src="{% static 'static_dev/js/scripts.js' %}"></script>
+    </div>
+{% endblock %}
